@@ -1,33 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.bank</groupId>
 	<artifactId>platform-BOM</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
-	<name>platform-BOM</name>
 	<packaging>pom</packaging>
+	<name>platform-BOM</name>
 
 	<description>
-		Platform BOM (Bill of Materials) for the Digital Banking Platform.
-		This POM centralizes and manages dependency versions for all modules,
-		ensuring consistency, compatibility, and maintainability across microservices
-		including API Gateway, Account Management, and Customer Services.
-		It imports Spring Boot and Spring Cloud dependency versions to standardize builds
-		across the enterprise platform.
+		Enterprise BOM for Digital Banking Platform.
+		Centralizes dependency versions for all modules:
+		Spring Boot, Flyway, MySQL, MapStruct, and other enterprise libraries.
 	</description>
 
-
 	<properties>
-		<spring.boot.version>3.5.9</spring.boot.version>
+		<spring.boot.version>3.5.8</spring.boot.version>
 		<spring.cloud.version>2025.0.1</spring.cloud.version>
 		<mapstruct.version>1.5.5.Final</mapstruct.version>
 	</properties>
 
-
 	<dependencyManagement>
 		<dependencies>
+			<!-- Spring Boot BOM -->
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-dependencies</artifactId>
@@ -36,6 +34,7 @@
 				<scope>import</scope>
 			</dependency>
 
+			<!-- Spring Cloud BOM -->
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
@@ -44,7 +43,7 @@
 				<scope>import</scope>
 			</dependency>
 
-
+			<!-- MapStruct -->
 			<dependency>
 				<groupId>org.mapstruct</groupId>
 				<artifactId>mapstruct</artifactId>
@@ -58,9 +57,7 @@
 			</dependency>
 
 
-
 		</dependencies>
 	</dependencyManagement>
-
 
 </project>

@@ -1,0 +1,95 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: API gateway
+
+  main:
+    web-application-type: reactive
+
+#  security:
+#    oauth2:
+#      resourceserver:
+#        jwt:
+#          issuer-uri: https://auth.bank.com/oauth2
+
+  cloud:
+    gateway:
+
+      default-filters:
+        # Add correlation ID for tracing
+        - AddRequestHeader=X-Correlation-Id, "#{T(java.util.UUID).randomUUID().toString()}"
+
+        # Remove sensitive headers before forwarding
+        - RemoveRequestHeader=Cookie
+
+      routes:
+
+        - id: account-service
+          uri: lb://account-service
+          predicates:
+            - Path=/api/accounts/**
+            - Method=GET,POST
+
+          filters:
+            # Remove /api prefix
+            - StripPrefix=1
+
+#            # Rate limiting (Redis)
+#            - name: RequestRateLimiter
+#              args:
+#                redis-rate-limiter.replenishRate: 20
+#                redis-rate-limiter.burstCapacity: 40
+#                key-resolver: "#{@userKeyResolver}"
+#
+#            # Circuit Breaker
+#            - name: CircuitBreaker
+#              args:
+#                name: accountCircuitBreaker
+#                fallbackUri: forward:/fallback/account
+#
+#            # Retry failed calls
+#            - name: Retry
+#              args:
+#                retries: 3
+#                statuses: BAD_GATEWAY,SERVICE_UNAVAILABLE
+#                methods: GET
+#
+#        - id: payment-service
+#          uri: lb://payment-service
+#          predicates:
+#            - Path=/api/payments/**
+#          filters:
+#            - StripPrefix=1
+#
+#            - name: RequestRateLimiter
+#              args:
+#                redis-rate-limiter.replenishRate: 5
+#                redis-rate-limiter.burstCapacity: 10
+#                key-resolver: "#{@userKeyResolver}"
+#
+#            - name: CircuitBreaker
+#              args:
+#                name: paymentCircuitBreaker
+#                fallbackUri: forward:/fallback/payment
+#
+#  redis:
+#    host: redis
+#    port: 6379
+#
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: health,info,prometheus
+#
+#  endpoint:
+#    health:
+#      probes:
+#        enabled: true
+#
+#logging:
+#  level:
+#    org.springframework.cloud.gateway: INFO
+#    reactor.netty: WARN

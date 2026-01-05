@@ -1,6 +1,8 @@
 package com.bank.auth_service.entities;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -43,10 +45,11 @@ public class UserAddress {
     @JoinColumn(name = "fk_user_id", nullable = false)
     private User user;
 
-
+    @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime created_at;
 
+    @UpdateTimestamp
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updated_at;
 

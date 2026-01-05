@@ -6,6 +6,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -44,12 +45,23 @@ public class User {
             cascade =  CascadeType.ALL,
             orphanRemoval = true
     )
-    private List<UserAddress> addresses;
+    private List<UserAddress> addresses = new ArrayList<>();
 
 
     @UpdateTimestamp
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
+
+
+    public void addAddress(UserAddress address) {
+        addresses.add(address);
+        address.setUser(this);
+    }
+
+    public void removeAddress(UserAddress address) {
+        addresses.remove(address);
+        address.setUser(null);
+    }
 
 
 

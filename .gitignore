@@ -15,6 +15,7 @@ target/
 
 ### Inviromet Variable ###
 .env.dev
+.env.test
 
 ### IntelliJ IDEA ###
 .idea

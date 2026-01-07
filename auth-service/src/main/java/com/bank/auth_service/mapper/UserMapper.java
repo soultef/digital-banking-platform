@@ -30,6 +30,7 @@ public interface UserMapper {
                     address.setZipCode(dto.getZipcode());
                     address.setCountry(dto.getCountry());
                     address.setCounty(dto.getCounty());
+                    address.setUnit(dto.getUnitNumber());
                     address.setUser(user); // set back-reference
                     return address;
                 })
@@ -65,6 +66,7 @@ public interface UserMapper {
                     dto.setZipcode(addr.getZipCode());
                     dto.setCountry(addr.getCountry());
                     dto.setCounty(addr.getCounty());
+                    dto.setUnitNumber(addr.getUnit());
                     return dto;
                 })
                 .toList();

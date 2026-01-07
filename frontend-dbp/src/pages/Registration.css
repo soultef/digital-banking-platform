@@ -1,0 +1,138 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #f3f4f6;
+}
+
+.registration-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 36px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+h2 {
+  font-size: 28px;
+  margin-bottom: 24px;
+  color: #111827;
+}
+
+h3 {
+  margin: 28px 0 16px;
+  font-size: 18px;
+  color: #1f2937;
+}
+
+/* Section card */
+.section-block {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Grid rows */
+.row {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.row.three-cols {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.row.two-cols {
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Inputs */
+input {
+  padding: 11px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input::placeholder {
+  color: #9ca3af;
+}
+
+input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* Buttons */
+.add-btn,
+.remove-btn,
+.submit-btn {
+  border: none;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.add-btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  background: #2563eb;
+  color: #ffffff;
+  margin-bottom: 24px;
+}
+
+.add-btn:hover {
+  background: #bae6fd;
+}
+
+.remove-btn {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.remove-btn:hover {
+  background: #fecaca;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.submit-btn:hover {
+  background: #1d4ed8;
+}
+
+.submit-btn:disabled {
+  background: #9ca3af;
+}
+
+/* Message */
+.message {
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .row.three-cols,
+  .row.two-cols {
+    grid-template-columns: 1fr;
+  }
+}

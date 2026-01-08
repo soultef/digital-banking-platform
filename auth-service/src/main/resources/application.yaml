@@ -6,9 +6,9 @@ spring:
     active: ${SPRING_PROFILES_ACTIVE}
 
   datasource:
-    url: ${DB_URL}
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
+    url: ${DB_URL:jdbc:mysql://localhost:3306/digital_banking}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:Soulsql@01}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
     hikari:

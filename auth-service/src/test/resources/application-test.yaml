@@ -10,8 +10,8 @@ spring:
   # =========================
   datasource:
     url: ${DB_URL:jdbc:mysql://localhost:3306/auth_service_test}
-    username: ${DB_USERNAME:root}
-    password: ${DB_PASSWORD:Soulsql@01}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
     # HikariCP settings

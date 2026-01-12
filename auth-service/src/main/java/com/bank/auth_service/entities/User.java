@@ -55,7 +55,6 @@ public class User {
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 
-
     public void addAddress(UserAddress address) {
         addresses.add(address);
         address.setUser(this);

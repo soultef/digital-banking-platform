@@ -1,0 +1,104 @@
+/* Global container */
+.signup-container {
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f6fa;
+}
+
+/* Left side: logo */
+.signup-left {
+  flex: 1;
+  background-color: #0d47a1; /* Dark blue */
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bank-logo h1 {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+/* Right side: form */
+.signup-right {
+  flex: 1;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 50px;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.05);
+}
+
+.signup-right h2 {
+  margin-bottom: 30px;
+  color: #0d47a1;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-form label {
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.signup-form input {
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #cfd8dc;
+  font-size: 1rem;
+}
+
+.signup-btn {
+  background-color: #0d47a1;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.signup-btn:hover {
+  background-color: #1565c0;
+}
+
+.login-link {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.login-link a {
+  color: #0d47a1;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  .signup-container {
+    flex-direction: column;
+  }
+
+  .signup-left {
+    flex: none;
+    height: 200px;
+  }
+
+  .signup-right {
+    flex: none;
+    padding: 30px 20px;
+  }
+}
